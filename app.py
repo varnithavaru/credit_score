@@ -5,7 +5,7 @@ from zipfile import ZipFile
 import os
 import seaborn as sns
 import matplotlib.pyplot as plt
-import lzma
+import bz2
 
 st.set_page_config(page_title='Credit Score App', page_icon='💰', layout='wide',
                    initial_sidebar_state='auto', menu_items={
@@ -23,8 +23,9 @@ st.set_page_config(page_title='Credit Score App', page_icon='💰', layout='wide
 
 
 scaler = pickle.load(open("scaling.pickle", 'rb'))
-with lzma.open("file.xz", "r") as f:
-    model =  pickle.load(f)
+with bz2.open('data.pkl.bz2', 'rb') as compressed_file:
+    # Load the Pickle data from the compressed file
+    model = pickle.load(compressed_file)
 
 age_default = None
 annual_income_default = 0
