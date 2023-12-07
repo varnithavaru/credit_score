@@ -23,9 +23,7 @@ st.set_page_config(page_title='Credit Score App', page_icon='💰', layout='wide
 
 
 scaler = pickle.load(open("scaling.pickle", 'rb'))
-with bz2.open('data.pkl.bz2', 'rb') as compressed_file:
-    # Load the Pickle data from the compressed file
-    model = pickle.load(compressed_file)
+model = pickle.load(open("model_rfc.pkl", "rb"))
 
 age_default = None
 annual_income_default = 0
