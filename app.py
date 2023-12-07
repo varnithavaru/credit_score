@@ -23,7 +23,7 @@ st.set_page_config(page_title='Credit Score App', page_icon='💰', layout='wide
 
 
 scaler = pickle.load(open("scaling.pickle", 'rb'))
-model = pickle.load(open("model_rfc.pkl", "rb"))
+model = pickle.load(open("model_rfc.pickle", "rb"))
 
 age_default = None
 annual_income_default = 0
